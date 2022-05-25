@@ -203,3 +203,99 @@ function avg() {
 
 avg(2, 3, 4, 5); // 3.5
 ```
+
+In JavaScript, defining functions within functions is a commonly-used technique.
+
+if an arrow function consists of a single expression, then the function body does not need to be written inside of curly braces. 
+
+```js
+const bornYear = () => {
+  return new Date().getFullYear() - age
+}
+
+ const bornYear = () => new Date().getFullYear() - age
+```
+
+## Destructuring
+
+we can use it to extract and gather the values of an object's properties into separate variables:
+
+```js
+const Hello = (props) => {
+  const { name, age } = props
+  const bornYear = () => new Date().getFullYear() - age
+
+  return (
+    <div>
+      <p>Hello {name}, you are {age} years old</p>
+      <p>So you were probably born in {bornYear()}</p>
+    </div>
+  )
+}
+
+//The props that are passed to the component are now directly destructured:
+
+const Hello = ({ name, age }) => {
+  const bornYear = () => new Date().getFullYear() - age
+
+  return (
+    <div>
+      <p>
+        Hello {name}, you are {age} years old
+      </p>
+      <p>So you were probably born in {bornYear()}</p>
+    </div>
+  )
+}
+```
+
+## Event handling
+
+Button elements support so-called mouse events, of which click is the most common event.
+
+We set the value of the button's onClick attribute to be a reference to the handleClick function defined in the code.
+
+Now every click of the plus button causes the handleClick function to be called, meaning that every click event will log a clicked message to the browser console.
+
+```js
+const App = () => {
+  const [ counter, setCounter ] = useState(0)
+
+  const handleClick = () => {
+    console.log('clicked')
+  }
+
+  return (
+    <div>
+      <div>{counter}</div>
+      <button onClick={(handleClick)}>
+        plus
+      </button>
+    </div>
+  )
+}
+```
+
+>An event handler is supposed to be either a function or a function reference
+
+Usually defining event handlers within JSX-templates like this
+```js
+<button onClick={() => setCounter(counter + 1)}>
+        plus
+      </button>
+```
+is not a good idea.
+
+## Passing state to child components
+
+>It's recommended to write React components that are small and reusable across the application and even across projects.
+
+One best practice in React is to lift the state up in the component hierarchy. The documentation says:
+
+Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor.
+
+## A more complex state
+
+The component's state or a piece of its state can be of any type. 
+
+It is forbidden in React to mutate state directly, since it can result in unexpected side effects. **Changing state has to always be done by setting the state to a new object**. If properties from the previous state object are not changed, they need to simply be copied, which is done by copying those properties into a new object, and setting that as the new state.
