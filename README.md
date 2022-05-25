@@ -293,12 +293,10 @@ Functions returning functions can be utilized in defining generic functionality 
 const App = () => {
   const [value, setValue] = useState(10)
 
-  const hello = (who) => {
-    const handler = () => {
+  const hello = (who) => () => {
       console.log('hello', who)
-    }
-    return handler
   }
+
 
   return (
     <div>
