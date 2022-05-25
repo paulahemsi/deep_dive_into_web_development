@@ -276,7 +276,7 @@ const App = () => {
 }
 ```
 
->An event handler is supposed to be either a function or a function reference
+>Event handlers must always be a function or a reference to a function and not a function call
 
 Usually defining event handlers within JSX-templates like this
 ```js
@@ -286,6 +286,30 @@ Usually defining event handlers within JSX-templates like this
 ```
 is not a good idea.
 
+
+Functions returning functions can be utilized in defining generic functionality that can be customized with parameters. The `hello` function that creates the event handlers can be thought of as a **factory** that produces *customized event handlers* meant for greeting users.
+
+```js
+const App = () => {
+  const [value, setValue] = useState(10)
+
+  const hello = (who) => {
+    const handler = () => {
+      console.log('hello', who)
+    }
+    return handler
+  }
+
+  return (
+    <div>
+      {value}
+      <button onClick={hello('world')}>button</button>
+      <button onClick={hello('react')}>button</button>
+      <button onClick={hello('function')}>button</button>
+    </div>
+  )
+}
+```
 ## Passing state to child components
 
 >It's recommended to write React components that are small and reusable across the application and even across projects.
