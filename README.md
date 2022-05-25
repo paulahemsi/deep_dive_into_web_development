@@ -385,3 +385,9 @@ const App = () => {
   )
 }
 ```
+
+## Do Not Define Components Within Components
+
+Never define components inside of other components. The method provides no benefits and leads to many unpleasant problems. The biggest problems are due to the fact that React treats a component defined inside of another component as a new component in every render. This makes it impossible for React to optimize the component.
+
+
