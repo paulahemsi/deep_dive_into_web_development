@@ -297,7 +297,6 @@ const App = () => {
       console.log('hello', who)
   }
 
-
   return (
     <div>
       {value}
