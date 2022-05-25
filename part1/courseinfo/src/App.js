@@ -17,11 +17,11 @@ const History = ({allClicks}) => {
 
 const Button = ({ handleClick, text }) => {
   return (
-  <button onClick={handleClick}>
-    {text}
-  </button>
+    <button onClick={handleClick}>
+      {text}
+    </button>
   )
-  }
+}
 
 const App = () => {
   const [left, setLeft] = useState(0)
@@ -37,7 +37,6 @@ const App = () => {
     setAll(allClicks.concat('R'))
     setRight(right + 1)
   }
-  
   return (
     <div>
       {left}

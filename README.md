@@ -299,3 +299,68 @@ Often, several components need to reflect the same changing data. We recommend l
 The component's state or a piece of its state can be of any type. 
 
 It is forbidden in React to mutate state directly, since it can result in unexpected side effects. **Changing state has to always be done by setting the state to a new object**. If properties from the previous state object are not changed, they need to simply be copied, which is done by copying those properties into a new object, and setting that as the new state.
+
+## Debugging
+
+Keep the browser's developer console open at all times.
+
+The Console tab in particular should always be open, unless there is a specific reason to view another tab.
+
+Keep both your code and the web page open together at the same time, all the time.
+
+When you use console.log for debugging, don't combine objects in a Java-like fashion by using the plus operator. Instead of writing:
+```js
+console.log('props value is ' + props)
+```
+Separate the things you want to log to the console with a comma:
+```js
+console.log('props value is', props)
+```
+If you use the Java-like way of concatenating a string with an object, you will end up with a rather uninformative log message:
+```
+props value is [Object object]
+```
+Whereas the items separated by a comma will all be available in the browser console for further inspection.
+
+You can pause the execution of your application code in the Chrome developer console's debugger, by writing the command **debugger** anywhere in your code.
+
+The execution will pause once it arrives at a point where the debugger command gets executed. By going to the Console tab, it is easy to inspect the current state of variables.
+
+The debugger also enables us to execute our code line by line with the controls found on the right-hand side of the *Sources* tab.
+
+You can also access the debugger without the **debugger** command by adding breakpoints in the Sources tab. Inspecting the values of the component's variables can be done in the `Scope`-section.
+
+React developer tools extension adds a new `Components` tab to the developer tools. The new developer tools tab can be used to inspect the different React elements in the application, along with their **state** and **props**
+
+## Rules od Hooks
+
+> hooks may only be called from the inside of a function body that defines a React component
+
+The useState function (as well as the useEffect function introduced later on in the course) **must not** be called from inside of a loop, a conditional expression, or any place that is not a function defining a component. This must be done to ensure that the hooks are always called in the same order, and if this isn't the case the application will behave erratically.
+
+```js
+const App = () => {
+  // these are ok
+  const [age, setAge] = useState(0)
+  const [name, setName] = useState('Juha Tauriainen')
+
+  if ( age > 10 ) {
+    // this does not work!
+    const [foobar, setFoobar] = useState(null)
+  }
+
+  for ( let i = 0; i < age; i++ ) {
+    // also this is not good
+    const [rightWay, setRightWay] = useState(false)
+  }
+
+  const notGood = () => {
+    // and this is also illegal
+    const [x, setX] = useState(-1000)
+  }
+
+  return (
+    //...
+  )
+}
+```
