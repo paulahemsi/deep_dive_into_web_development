@@ -8,10 +8,23 @@ const Button = ({handleClick, title}) => {
   )
 }
 
-const Results = ({total, title}) => {
-  total = total? total : 0
+const Statistics = ({good, neutral, bad}) => {
+  const totalFeedbacks = good + neutral + bad
+  const average = (good - bad) / totalFeedbacks
+
+  let positivePercentage = good * 100 / totalFeedbacks
+  positivePercentage = positivePercentage ? positivePercentage : 0
+  positivePercentage = `${positivePercentage} %`
+  
   return (
-    <p>{title} {total}</p>
+    <>
+    <p>good {good}</p> 
+    <p>neutral {neutral}</p> 
+    <p>bad {bad}</p> 
+    <p>all {totalFeedbacks}</p> 
+    <p>average {average}</p> 
+    <p>positive {positivePercentage}</p> 
+    </>
   )
 }
 
@@ -21,17 +34,6 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-  const totalFeedbacks = good + neutral + bad
-  const average = (good - bad) / totalFeedbacks
-
-  let positivePercentage = good * 100 / totalFeedbacks
-  positivePercentage = positivePercentage ? positivePercentage : 0
-  positivePercentage = `${positivePercentage} %`
-
-  const goodTitle = "good"
-  const neutralTitle = "neutral"
-  const badTitle = "bad"
-
   const handleGoodFeedback = () => setGood(good + 1)
   const handleNeutralFeedback = () => setNeutral(neutral + 1)
   const handleBadFeedback = () => setBad(bad + 1)
@@ -39,16 +41,11 @@ const App = () => {
   return (
     <div>
       <h2>give feedback</h2>
-      <Button handleClick={handleGoodFeedback} title={goodTitle}/>
-      <Button handleClick={handleNeutralFeedback} title={neutralTitle}/>
-      <Button handleClick={handleBadFeedback} title={badTitle}/>
+      <Button handleClick={handleGoodFeedback} title="good"/>
+      <Button handleClick={handleNeutralFeedback} title="neutral"/>
+      <Button handleClick={handleBadFeedback} title="bad"/>
       <h2>statistics</h2>
-      <Results total={good} title={goodTitle}/>
-      <Results total={neutral} title={neutralTitle}/>
-      <Results total={bad} title={badTitle}/>
-      <Results total={totalFeedbacks} title="all"/>
-      <Results total={average} title="average"/>
-      <Results total={positivePercentage} title="positive"/>
+      <Statistics good={good} neutral={neutral} bad={bad}/>
     </div>
   )
 }
