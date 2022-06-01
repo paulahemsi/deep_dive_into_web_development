@@ -9,6 +9,7 @@ const Button = ({handleClick, title}) => {
 }
 
 const Results = ({total, title}) => {
+  total = total? total : 0
   return (
     <p>{title} {total}</p>
   )
@@ -19,7 +20,14 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-  
+
+  const totalFeedbacks = good + neutral + bad
+  const average = (good - bad) / totalFeedbacks
+
+  let positivePercentage = good * 100 / totalFeedbacks
+  positivePercentage = positivePercentage ? positivePercentage : 0
+  positivePercentage = `${positivePercentage} %`
+
   const goodTitle = "good"
   const neutralTitle = "neutral"
   const badTitle = "bad"
@@ -38,6 +46,9 @@ const App = () => {
       <Results total={good} title={goodTitle}/>
       <Results total={neutral} title={neutralTitle}/>
       <Results total={bad} title={badTitle}/>
+      <Results total={totalFeedbacks} title="all"/>
+      <Results total={average} title="average"/>
+      <Results total={positivePercentage} title="positive"/>
     </div>
   )
 }
