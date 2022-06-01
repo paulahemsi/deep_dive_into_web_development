@@ -15,17 +15,25 @@ const Statistics = ({good, neutral, bad}) => {
   let positivePercentage = good * 100 / totalFeedbacks
   positivePercentage = positivePercentage ? positivePercentage : 0
   positivePercentage = `${positivePercentage} %`
-  
-  return (
-    <>
-    <p>good {good}</p> 
-    <p>neutral {neutral}</p> 
-    <p>bad {bad}</p> 
-    <p>all {totalFeedbacks}</p> 
-    <p>average {average}</p> 
-    <p>positive {positivePercentage}</p> 
-    </>
-  )
+  if (totalFeedbacks)
+  {
+    return (
+      <>
+      <p>good {good}</p> 
+      <p>neutral {neutral}</p> 
+      <p>bad {bad}</p> 
+      <p>all {totalFeedbacks}</p> 
+      <p>average {average}</p> 
+      <p>positive {positivePercentage}</p> 
+      </>
+    )
+  }
+  else
+  {
+    return (
+      <p>No feedback given</p>
+    )
+  }
 }
 
 const App = () => {
