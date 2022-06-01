@@ -22,8 +22,7 @@ const App = () => {
   const [selected, setSelected] = useState(0)
 
   const handleNext = () => {
-    const newIndex = Math.floor(Math.random() * 7)//anecdotes.length
-    console.log(newIndex)
+    const newIndex = Math.floor(Math.random() * anecdotes.length)
     setSelected(newIndex)
   }
 
