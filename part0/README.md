@@ -30,7 +30,7 @@ server-->browser: data.json
 # 0.5
 
 ```
-title Single page app
+title 0.5 Single page app
 
 
 browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
@@ -47,7 +47,7 @@ browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_sp
 server-->browser: Status Code 201 {"message":"note created"}
 ```
 
-![image](https://user-images.githubusercontent.com/63563271/172188503-008073c4-b897-4f85-ba47-c378c827fb11.png)
+![image](https://user-images.githubusercontent.com/63563271/172189305-3d022b15-5f27-4682-8c7c-4b9aad9d5a49.png)
 
 
 # 0.6
