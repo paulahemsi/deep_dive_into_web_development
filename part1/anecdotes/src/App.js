@@ -2,9 +2,9 @@ import { useState } from 'react'
 
 const Button = ({text, handler}) => {
   return (
-    <div>
+    <>
       <button onClick={handler}>{text}</button>
-    </div>
+    </>
   )
 }
 
@@ -34,9 +34,14 @@ const App = () => {
   }
   return (
     <div>
+      <h2>Anecdote of the day</h2>
       {anecdotes[selected]}
+      <div>
       <Button text="vote" handler={handleVote}/>
       <Button text="next anecdote" handler={handleNext}/>
+      </div>
+      <h2>Anecdote with most votes</h2>
+      {anecdotes[points.indexOf(Math.max(...points))]}
     </div>
   )
 }
