@@ -29,6 +29,27 @@ server-->browser: data.json
 
 # 0.5
 
+```
+title 0.5 Single page app
+
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+
+
+server-->browser: Status Code 200 [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over browser:
+add new note
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+server-->browser: Status Code 201 {"message":"note created"}
+```
+
+![image](https://user-images.githubusercontent.com/63563271/172189587-564ff659-29bb-40d1-b675-23f03c65e150.png)
+
+
 # 0.6
 
 ```
