@@ -36,7 +36,7 @@ title 0.5 Single page app
 browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
 
 
-server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+server-->browser: Status Code 200 [{ content: "HTML is easy", date: "2019-05-23" }, ...]
 
 note over browser:
 add new note
@@ -47,7 +47,7 @@ browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_sp
 server-->browser: Status Code 201 {"message":"note created"}
 ```
 
-![image](https://user-images.githubusercontent.com/63563271/172189305-3d022b15-5f27-4682-8c7c-4b9aad9d5a49.png)
+![image](https://user-images.githubusercontent.com/63563271/172189587-564ff659-29bb-40d1-b675-23f03c65e150.png)
 
 
 # 0.6
