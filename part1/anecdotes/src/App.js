@@ -21,7 +21,6 @@ const App = () => {
   
   const [selected, setSelected] = useState(0)
   const [points, setPoints] = useState(Array(anecdotes.length).fill(0))
-  console.log(points)
 
   const handleNext = () => {
     const newIndex = Math.floor(Math.random() * anecdotes.length)
