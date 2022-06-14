@@ -390,4 +390,8 @@ const App = () => {
 
 Never define components inside of other components. The method provides no benefits and leads to many unpleasant problems. The biggest problems are due to the fact that React treats a component defined inside of another component as a new component in every render. This makes it impossible for React to optimize the component.
 
+## Functional Programming
 
+Functions that we send into other functions are called **callback functions** (because the host function will call back to them)
+
+In JS **functions are values** and we can exploit this by dividing the code into small simple functions and **composing** them together using higher-order functions (functions that take other functions as arguments)
