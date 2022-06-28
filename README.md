@@ -416,3 +416,28 @@ When called like this, i is assigned the value of the index of the position in t
 But it's not recommended to use index as key
 
 [Index as a key is an anti-pattern](https://robinpokorny.medium.com/index-as-a-key-is-an-anti-pattern-e0349aece318)
+
+```js
+const Note = ({note}) => {
+  return (
+    <li>{note.content}</li>
+  )
+}
+
+const App = ({notes}) => {
+   return (
+    <div>
+      <h1>Notes</h1>
+      <ul>
+        {notes.map((note) =>
+          <Note key={note.id} note={note}/> //in this case the key is in the Note component, not in the li element
+        )}
+      </ul>
+    </div>
+  )
+}
+```
+
+## modules
+
+A whole React application can be written in a single file. Although that is, of course, not very practical. Common practice is to declare each component in their own file as an ES6-module.
