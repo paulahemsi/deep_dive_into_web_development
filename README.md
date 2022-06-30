@@ -441,3 +441,7 @@ const App = ({notes}) => {
 ## modules
 
 A whole React application can be written in a single file. Although that is, of course, not very practical. Common practice is to declare each component in their own file as an ES6-module.
+
+In smaller applications, components are usually placed in a directory called components, which is in turn placed within the src directory. The convention is to name the file after the component.
+
+Note that when importing our own components, their location must be given in relation to the importing file. The filename extension `.js` can be omitted.

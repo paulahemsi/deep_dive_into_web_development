@@ -1,8 +1,4 @@
-const Note = ({note}) => {
-  return (
-    <li>{note.content}</li>
-  )
-}
+import Note from "./components/Note.js"
 
 const App = ({notes}) => {
    return (
