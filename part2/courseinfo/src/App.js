@@ -1,9 +1,9 @@
-const Header = ({ name }) => <h1>{name}</h1>
+const Header = ({ name }) => <h2>{name}</h2>
 
 const Total = ({ parts }) => {
-  return (<p>Number of exercises {
+  return (<p> <strong> Number of exercises {
     parts.reduce((sum, parts) => sum + parts.exercises, 0)
-  }</p>)
+  }</strong></p>)
 }
 
 const Part = ({ part }) => <p>{part.name} {part.exercises}</p>
@@ -75,6 +75,7 @@ const App = () => {
 
   return (
     <div>
+      <h1>Web development curriculum</h1>
       {courses.map(course => <Course course={course} key={course.id}/>)}
     </div>
   )
