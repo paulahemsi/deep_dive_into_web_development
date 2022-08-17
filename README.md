@@ -353,7 +353,9 @@ You can also access the debugger without the **debugger** command by adding brea
 
 React developer tools extension adds a new `Components` tab to the developer tools. The new developer tools tab can be used to inspect the different React elements in the application, along with their **state** and **props**
 
-## Rules od Hooks
+## Rules of Hooks
+
+When would I use a Hook? If you write a function component and realize you need to add some state to it, you can use a Hook inside the existing function component. (from [React docs](https://reactjs.org/docs/hooks-state.html))
 
 > hooks may only be called from the inside of a function body that defines a React component
 
