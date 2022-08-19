@@ -447,3 +447,23 @@ A whole React application can be written in a single file. Although that is, of 
 In smaller applications, components are usually placed in a directory called components, which is in turn placed within the src directory. The convention is to name the file after the component.
 
 Note that when importing our own components, their location must be given in relation to the importing file. The filename extension `.js` can be omitted.
+
+## forms
+
+```js
+<form onSubmit={addNote}>
+  <input />
+  <button type="submit">save</button>
+</form>   
+```
+
+event handler to the form element that will be called when the form is submitted, by clicking the submit button:
+
+```js
+const addNote = (event) => {
+  event.preventDefault()
+  console.log('button clicked', event.target)
+}
+```
+
+The event handler immediately calls the event.preventDefault() method, which prevents the default action of submitting a form. The default action would, among other things, cause the page to reload
